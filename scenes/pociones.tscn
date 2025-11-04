@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://cf5bkranabk68"]
+
+[ext_resource type="Texture2D" uid="uid://ik1xrxjchg8k" path="res://art/Pociones/PocionTipo1.png" id="1_jinec"]
+[ext_resource type="Script" uid="uid://cvelvcjp12dd0" path="res://script/pociones.gd" id="1_kr3yu"]
+[ext_resource type="Texture2D" uid="uid://c413lwa6tuhvf" path="res://art/Pociones/PocionTipo2.png" id="1_slv27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sisab"]
+atlas = ExtResource("1_slv27")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_465mf"]
+atlas = ExtResource("1_slv27")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rhnn"]
+atlas = ExtResource("1_slv27")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms72w"]
+atlas = ExtResource("1_slv27")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qymst"]
+atlas = ExtResource("1_slv27")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kov3"]
+atlas = ExtResource("1_slv27")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slv27"]
+atlas = ExtResource("1_jinec")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr3yu"]
+atlas = ExtResource("1_jinec")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev7qf"]
+atlas = ExtResource("1_jinec")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddbqj"]
+atlas = ExtResource("1_jinec")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58stt"]
+atlas = ExtResource("1_jinec")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c421r"]
+atlas = ExtResource("1_jinec")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sisab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sisab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_465mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rhnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms72w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qymst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kov3")
+}],
+"loop": true,
+"name": &"pocion_amarilla",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slv27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr3yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev7qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddbqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58stt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c421r")
+}],
+"loop": true,
+"name": &"pocion_roja",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_465mf"]
+radius = 6.0
+height = 16.0
+
+[node name="Pociones" type="RigidBody2D" groups=["potion"]]
+position = Vector2(25, 17)
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_kr3yu")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_sisab")
+animation = &"pocion_roja"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_465mf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

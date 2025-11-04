@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://mloykayr205r"]
+
+[ext_resource type="Script" uid="uid://h1etlbu7wdbt" path="res://script/hudinfo.gd" id="1_5b7rx"]
+[ext_resource type="FontFile" uid="uid://cpvjaaf7m2c25" path="res://fonts/Xolonium-Regular.ttf" id="1_tit35"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_5b7rx"]
+action = &"button_return"
+
+[sub_resource type="Shortcut" id="Shortcut_p21v1"]
+events = [SubResource("InputEventAction_5b7rx")]
+
+[node name="HUDINFO" type="CanvasLayer"]
+script = ExtResource("1_5b7rx")
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_top = 21.0
+offset_right = 172.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tit35")
+theme_override_font_sizes/font_size = 30
+text = "🕹️ Controles del Juego"
+
+[node name="Title2Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 182.0
+offset_right = 168.0
+offset_bottom = 232.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tit35")
+theme_override_font_sizes/font_size = 20
+text = "🧭 Movimiento del Personaje:"
+
+[node name="Title3Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 412.0
+offset_right = 197.0
+offset_bottom = 462.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tit35")
+theme_override_font_sizes/font_size = 25
+text = "❤️ Sistema de Vida:"
+horizontal_alignment = 1
+
+[node name="ContentTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_top = 87.0
+offset_right = 216.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_tit35")
+theme_override_font_sizes/normal_font_size = 16
+text = "🎮 Control de Botones:
+
+Start → Enter   Info → I    Return → R"
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="ContentTextLabel2" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 247.0
+offset_right = 187.0
+offset_bottom = 391.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_tit35")
+theme_override_font_sizes/normal_font_size = 16
+text = "Usa las teclas de Dirección para moverte:
+
+⬆️ Arriba
+⬇️ Abajo
+⬅️ Izquierda
+➡️ Derecha"
+
+[node name="ContentTextLabel3" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -239.0
+offset_top = 470.0
+offset_right = 239.0
+offset_bottom = 539.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_tit35")
+theme_override_font_sizes/normal_font_size = 16
+text = "El juego inicia con 3 vidas (❤️❤️❤️).
+Por cada poción que recojas, recuperas 1 vida.
+Puedes tener un máximo de 3 vidas.
+"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -140.0
+offset_right = 118.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_tit35")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_p21v1")
+text = "Return"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
