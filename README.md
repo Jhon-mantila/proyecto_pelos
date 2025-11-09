@@ -9,7 +9,7 @@ Este proyecto está basado en el tutorial oficial de Godot [“Tu primer juego 2
 ---
 
 ## 📂 Estructura del proyecto
-
+```text
 ├── Sound
 │   ├── House In a Forest Loop.ogg
 │   ├── combat-punch-hit-a.mp3
@@ -60,7 +60,7 @@ Este proyecto está basado en el tutorial oficial de Godot [“Tu primer juego 2
     ├── pociones.gd
     └── pociones.gd.uid
 
-
+```
 ---
 
 ## 🧙‍♂️ Recursos utilizados
